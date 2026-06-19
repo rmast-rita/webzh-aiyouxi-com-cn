@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rmast-rita.github.io/webzh-aiyouxi-com-cn/sitemap.xml
