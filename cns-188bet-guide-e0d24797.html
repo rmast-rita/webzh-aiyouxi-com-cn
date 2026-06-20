@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>188bet 知识库 · 再访与收藏</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f2f2f2;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: #2e2e2e;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* 顶部问候条 */
+    .welcome-bar {
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 1.5rem 2rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid #e6e6e6;
+      font-size: 1rem;
+      color: #3a3a3a;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .welcome-bar p {
+      margin: 0;
+    }
+
+    .welcome-bar a {
+      color: #1a6d80;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .welcome-bar a:hover {
+      text-decoration: underline;
+    }
+
+    .badge-collect {
+      background: #eef4f5;
+      padding: 0.25rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.85rem;
+      color: #1a6d80;
+      border: 1px solid #cbdde0;
+    }
+
+    /* 英雄区 —— 目录感标题 */
+    .hero-directory {
+      background: transparent;
+      padding: 1rem 0 1.5rem;
+    }
+
+    .hero-directory h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      border-left: 6px solid #1a6d80;
+      padding-left: 1.2rem;
+      margin: 0 0 0.5rem;
+      color: #1f2d33;
+    }
+
+    .hero-sub {
+      color: #5c6f77;
+      margin-left: 1.8rem;
+      font-size: 0.95rem;
+      border-bottom: 1px dashed #d0d8db;
+      padding-bottom: 0.6rem;
+    }
+
+    /* 卡片网格布局 */
+    .knowledge-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e0e4e6;
+      border-radius: 1rem;
+      padding: 1.6rem 1.8rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1f3a42;
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #eef2f3;
+      letter-spacing: 0.02em;
+    }
+
+    .card p, .card li {
+      font-size: 0.95rem;
+      color: #3f4e55;
+    }
+
+    .card ul {
+      padding-left: 1.2rem;
+      list-style: square;
+    }
+
+    .card li {
+      margin-bottom: 0.5rem;
+    }
+
+    .card a {
+      color: #1a6d80;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .card a:hover {
+      color: #0f4c5c;
+    }
+
+    .highlight-box {
+      background: #f8fbfc;
+      border-left: 4px solid #1a6d80;
+      padding: 1rem 1.2rem;
+      border-radius: 0.5rem;
+      margin: 1.2rem 0 0.5rem;
+      font-size: 0.9rem;
+      color: #2b414a;
+    }
+
+    /* 提示区 — 单独卡片 */
+    .tips-card {
+      background: #ffffff;
+      border: 1px solid #e0e4e6;
+      border-radius: 1rem;
+      padding: 1.8rem 2rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .tips-card .tip-item {
+      flex: 1 1 180px;
+    }
+
+    .tip-item .tip-icon {
+      font-size: 1.2rem;
+      margin-right: 0.4rem;
+    }
+
+    .tip-item h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1f3a42;
+      margin-bottom: 0.4rem;
+    }
+
+    .tip-item p {
+      font-size: 0.9rem;
+      color: #4b5e66;
+    }
+
+    .tip-item strong {
+      color: #1a6d80;
+    }
+
+    /* faq 摘要区域 */
+    .faq-digest {
+      background: #ffffff;
+      border: 1px solid #e0e4e6;
+      border-radius: 1rem;
+      padding: 1.6rem 2rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .faq-digest h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1f3a42;
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #ecf0f2;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #1e3f49;
+    }
+
+    .faq-a {
+      color: #4f626b;
+      margin-left: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    /* 相关信息区 */
+    .related-info {
+      background: #ffffff;
+      border: 1px solid #e0e4e6;
+      border-radius: 1rem;
+      padding: 1.6rem 2rem;
+      margin: 1.8rem 0 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .related-info h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1f3a42;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #eef2f3;
+      padding-bottom: 0.4rem;
+    }
+
+    .related-info p {
+      font-size: 0.9rem;
+      color: #3f4e55;
+      line-height: 1.8;
+    }
+
+    .related-info a {
+      color: #1a6d80;
+      text-decoration: underline;
+    }
+
+    /* 尾部 */
+    .footer-note {
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 1px solid #dce3e6;
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: #7c8f98;
+    }
+
+    /* 响应式 */
+    @media (max-width: 720px) {
+      .knowledge-grid {
+        grid-template-columns: 1fr;
+      }
+      .tips-card {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .hero-directory h1 {
+        font-size: 1.6rem;
+      }
+      .welcome-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 问候条 / 收藏提示 -->
+  <div class="welcome-bar">
+    <p>📖 再次光临 · 这里是一份持续更新的知识库</p>
+    <span class="badge-collect">☆ 收藏后可快速回看</span>
+  </div>
+
+  <!-- 标题区 —— 目录感入口 -->
+  <div class="hero-directory">
+    <h1>188bet 知识库 · 阅览目录</h1>
+    <div class="hero-sub">从再次访问、收藏与持续关注的角度整理</div>
+  </div>
+
+  <!-- 双列卡片：介绍与特点 + 场景提示 -->
+  <div class="knowledge-grid">
+    <!-- 卡片1：平台简介 -->
+    <div class="card">
+      <h2>📌 平台简介</h2>
+      <p><a href="https://cns-188bet.com">188bet</a> 是一个以体育赛事、电子竞猜及娱乐内容为主的综合平台，面向多地区用户提供信息展示与互动服务。平台内容更新稳定，适合长期关注。</p>
+      <p>许多用户将 <a href="https://cns-188bet.com">188bet</a> 作为获取赛事资讯和日常娱乐信息的参考渠道之一，其界面与内容结构经过多次迭代，目前保持清晰且流畅的浏览体验。</p>
+    </div>
+
+    <!-- 卡片2：内容特点 -->
+    <div class="card">
+      <h2>🧩 内容特点</h2>
+      <ul>
+        <li>覆盖足球、篮球、网球等主流体育项目，数据维度丰富</li>
+        <li>赛事前瞻与回顾信息持续产出，便于长期跟踪</li>
+        <li>娱乐板块提供竞猜、虚拟体育等多样化选择</li>
+        <li>多语言界面适配，降低跨语言浏览门槛</li>
+      </ul>
+      <div class="highlight-box">
+        💡 持续关注可及时获取新赛季、新赛事以及功能调整动态。
+      </div>
+    </div>
+  </div>
+
+  <!-- 提示区 —— 实用信息卡片 -->
+  <div class="tips-card">
+    <div class="tip-item">
+      <span class="tip-icon">🔖</span>
+      <h3>再次访问小技巧</h3>
+      <p>将 <strong>188bet</strong> 添加至浏览器书签或收藏夹，下次即可一键返回。移动端用户也可在浏览器中保存到主屏幕。</p>
+    </div>
+    <div class="tip-item">
+      <span class="tip-icon">🔄</span>
+      <h3>保持关注</h3>
+      <p>平台内容会根据赛事日程自然更新，建议每隔一段时间回来看看，避免错过重要信息。</p>
+    </div>
+    <div class="tip-item">
+      <span class="tip-icon">🔐</span>
+      <h3>安全访问提醒</h3>
+      <p>请直接通过官方链接 <a href="https://cns-188bet.com">188bet</a> 访问，注意核对域名，避免第三方仿冒站。</p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要区 -->
+  <div class="faq-digest">
+    <h2>❓ 常见问题 · 摘要</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q：是否需要注册才能浏览内容？</span>
+      <div class="faq-a">大部分信息类页面可以公开查看，部分互动功能可能需要注册账号。</div>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q：赛事更新频率如何？</span>
+      <div class="faq-a">主要联赛和杯赛期间每天均有内容更新，休赛期更新节奏相对平缓。</div>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q：移动端体验怎么样？</span>
+      <div class="faq-a">页面采用响应式设计，在手机和平板上均可流畅浏览，无需额外下载应用。</div>
+    </div>
+  </div>
+
+  <!-- 相关信息区 —— 收录与持续关注 -->
+  <div class="related-info">
+    <h2>📚 相关信息 · 持续关注指南</h2>
+    <p>如果你希望把 <a href="https://cns-188bet.com">188bet</a> 作为长期信息源，建议定期查看首页轮播与最新文章区域，这里会展示近期热点。也可以关注平台社交账号（如果存在）或使用 RSS 订阅工具监测页面更新。</p>
+    <p>另外，部分浏览器支持“阅读列表”功能，将网站加入后可以离线保存页面快照，方便在无网络时回顾。了解平台的帮助中心也能更快找到特定功能说明。</p>
+    <p style="margin-top: 0.8rem;">🔍 知识库本身也会不定期修订和增补，欢迎再次回到这个页面查看是否有新内容加入。你的收藏与标记会让再次访问更加高效。</p>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    知识库 · 信息仅供参考 · 访问时请自行判断
+  </div>
+</div>
+</body>
+</html>
